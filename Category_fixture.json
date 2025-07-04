@@ -1,0 +1,57 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Картофель",
+        "description": "",
+        "image": "",
+        "category": 1,
+        "price": 100,
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Яблоки",
+        "description": "",
+        "image": "",
+        "category": 2,
+        "price": null,
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Мандарины",
+        "description": "",
+        "image": "",
+        "category": 2,
+        "price": null,
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Овощи",
+        "description": ""
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Фрукты",
+        "description": ""
+    }
+}
+]
