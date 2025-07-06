@@ -7,8 +7,8 @@ class Product(models.Model):
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, verbose_name='категория',
                                  null=True, blank=True, related_name='products')
     price = models.IntegerField(verbose_name='цена за покупку', blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True, verbose_name='Дата создания', auto_now_add=True)
-    updated_at = models.DateTimeField(blank=True, null=True, verbose_name='Дата последнего изменения', auto_now=True)
+    created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Дата последнего изменения', auto_now=True)
 
 
     class Meta:
