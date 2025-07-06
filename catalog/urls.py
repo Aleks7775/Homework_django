@@ -12,5 +12,7 @@ urlpatterns = [
     # path('home/', home, name='home'),
     # path('contacts/', contacts, name='contacts')
     path('products/<int:pk>/', oun_product, name='oun_product')
-]   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
