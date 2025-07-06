@@ -18,7 +18,7 @@ def oun_product(request, pk):
 
 
 def products_list(request):
-    """Продукт главная"""
+    """Контролер главная"""
     products = Product.objects.all()
     context = {"product": products}
     return render(request, 'product_list.html', context)
