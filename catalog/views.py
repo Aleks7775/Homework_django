@@ -24,3 +24,4 @@ def products_list(request):
     context = {"product": product}
     return render(request, 'product_list.html', context)
 
+
