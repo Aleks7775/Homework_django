@@ -7,7 +7,9 @@
                 <div class="col">
                     <div class="card shadow-sm">
                         <img src="{{ prod.image | media_filter }}">
-                        <div class="card-body"><p class="card-text">{{ prod.name }}</p>
+                        <div class="card-body">
+                            <p class="card-text">Категория: {{ prod.category }}</p>
+                            <p class="card-text">{{ prod.name }}</p>
                             <p class="card-text">{{ prod.price }} руб</p>
                             <p class="card-text">{{ prod.description }}</p>
                             <p class="card-text">Дата создания: {{ prod.created_at }}</p>
