@@ -1,27 +1,45 @@
 from django.shortcuts import render, get_object_or_404
-from catalog.models import Product
+from django.views.generic import ListView, DetailView, TemplateView
+
+from catalog.models import Product, Category
 import logging
 
 
-def home(request):
-    return render(request, 'home.html')
+class ProductListView(ListView):
+    model = Product
 
 
-def contacts(request):
-    return render(request, 'contacts.html')
+
+class OunProductView(DetailView):
+    model = Product
+
+    #catalog/product_list.htm
 
 
-def oun_product(request, pk):
-    """Контролер одного товара"""
-    prod = get_object_or_404(Product, pk=pk)
-    context = {"prod": prod}
-    return render(request, 'oun_product.html', context)
+# class ContactsView(TemplateView):
+#     template_name = 'catalog/contacts.html'
 
 
-def products_list(request):
-    """Контролер главная"""
-    product = Product.objects.all()
-    context = {"product": product}
-    return render(request, 'product_list.html', context)
+# def home(request):
+#     return render(request, 'home.html')
+#
+#
+# def contacts(request):
+#     return render(request, 'contacts.html')
+#
+#
+# def oun_product(request, pk):
+#     """Контролер одного товара"""
+#     prod = get_object_or_404(Product, pk=pk)
+#     context = {"prod": prod}
+#     return render(request, 'product_detail.html', context)
+#
+#
+# def products_list(request):
+#     """Контролер главная"""
+#     product = Product.objects.all()
+#     context = {"product": product}
+#     return render(request, 'product_list.html', context)
+
 
 
