@@ -9,37 +9,18 @@ class ProductListView(ListView):
     model = Product
 
 
-
 class OunProductView(DetailView):
     model = Product
 
-    #catalog/product_list.htm
+
+def home(request):
+    return render(request, 'catalog/home.html')
 
 
-# class ContactsView(TemplateView):
-#     template_name = 'catalog/contacts.html'
+class ContactsView(TemplateView):
+    template_name = 'catalog/contacts.html'
 
 
-# def home(request):
-#     return render(request, 'home.html')
-#
-#
-# def contacts(request):
-#     return render(request, 'contacts.html')
-#
-#
-# def oun_product(request, pk):
-#     """Контролер одного товара"""
-#     prod = get_object_or_404(Product, pk=pk)
-#     context = {"prod": prod}
-#     return render(request, 'product_detail.html', context)
-#
-#
-# def products_list(request):
-#     """Контролер главная"""
-#     product = Product.objects.all()
-#     context = {"product": product}
-#     return render(request, 'product_list.html', context)
-
-
+class HomeView(TemplateView):
+    template_name = 'catalog/home.html'
 
