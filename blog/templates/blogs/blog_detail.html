@@ -10,6 +10,7 @@
                         <div class="card-body">
                             <p class="card-text">{{ blog.title }}</p>
                             <p class="card-text">{{ blog.content }}</p>
+                            <p class="card-text">просмотры: {{ blog.views }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a class="btn btn-primary" href="{% url 'blog:blog_list'%}" role="button">Назад</a>
