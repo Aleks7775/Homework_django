@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование продукта')
     description = models.TextField(verbose_name='Описание продукта')
@@ -10,12 +11,10 @@ class Product(models.Model):
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата последнего изменения', auto_now=True)
 
-
     class Meta:
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
         ordering = ['category']
-
 
     def __str__(self):
         return f"{self.name}"
@@ -25,11 +24,9 @@ class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование категории')
     description = models.TextField(verbose_name='Описание категории')
 
-
     class Meta:
         verbose_name = "Наименование категории"
         verbose_name_plural = "Категории"
-
 
     def __str__(self):
         return f"{self.name}"
