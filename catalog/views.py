@@ -1,4 +1,3 @@
-from django.core.exceptions import PermissionDenied
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView, View
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -60,7 +59,6 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
         if product.owner != request.user and not request.user.has_perm('catalog.change_product'):
             return HttpResponseForbidden("У вас нет прав для редактирования продукта.")
         return super().dispatch(request, *args, **kwargs)
-
 
 
 class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
