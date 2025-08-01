@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from users.models import User
 
 from catalog.models import Product
 from django.core.exceptions import ValidationError
@@ -55,3 +56,16 @@ class ProductForm(ModelForm):
             if i in description:
                 raise ValidationError('Запрещенные слова, которые нельзя использовать в описаниях')
         return description
+
+
+    # def form_valid(self, form):
+    #     form.instance.owner = self.request.user
+    #     return super().form_valid(form)
+
+
+    # def create_product(self, form):
+    #     form.instance.owner = self.request.user
+    #     return super().form_valid(form)
+    #     # owner = self.cleaned_data.get('owner')
+    #     # user = self.request.user
+    #     # Product.owner == User

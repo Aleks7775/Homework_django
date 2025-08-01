@@ -1,5 +1,5 @@
 from django.db import models
-
+from users.models import User
 
 class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование продукта')
@@ -10,7 +10,9 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='цена за покупку', blank=True, null=True)
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата последнего изменения', auto_now=True)
-    is_published = models.BooleanField(default=False, verbose_name='публикация')
+    is_published = models.BooleanField(default=False, verbose_name='публикация'),
+    owner = models.ForeignKey(User, on_delete=models.DO_NOTHING, max_length=100,
+                              verbose_name='Владелец продукта', null=True, blank=True)
 
     class Meta:
         verbose_name = "Продукт"
