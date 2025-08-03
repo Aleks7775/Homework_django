@@ -147,6 +147,22 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 LOGIN_URL = 'users:login'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
 
 
 
