@@ -8,6 +8,9 @@ from catalog.models import Product
 from catalog.forms import ProductForm
 
 import logging
+
+from catalog.services import get_product_from_cache, get_category_product
+
 logger = logging.getLogger(__name__)
 
 
@@ -33,6 +36,9 @@ class HomeView(TemplateView):
 
 class ProductListView(ListView):
     model = Product
+
+    def get_queryset(self):
+        return get_product_from_cache()
 
 
 class OunProductView(DetailView):
@@ -68,6 +74,15 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
 
     def handle_no_permission(self):
         return HttpResponseForbidden("У вас нет прав для удаления продукта.")
+
+
+class ProductCategoryListView(ListView):
+    model = Product
+    template_name = "catalog/product_category_list.html"
+
+    def get_queryset(self):
+        category_id = self.kwargs['category_id']
+        return get_category_product(category_id)
 
 
 # class ProductDeleteView(LoginRequiredMixin, TemplateView):
